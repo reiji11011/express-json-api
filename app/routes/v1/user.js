@@ -2,28 +2,25 @@ var express = require('express');
 var router = express.Router();
 var UserModel = require('../../models/userModel.js');
 
-router.get('/test', function(req, res){
-
-    // UserModelの内容を取得し、jsonで返却する。
+// Userの一覧を取得する
+router.get('/', function (req, res) {
     UserModel
         .find()
         .then(function (users) {
             res.json(users);
         });
-
-    // res.json({
-    //     massage: "This is user api"
-    // });
 });
 
+// Userの詳細を取得する
 router.get('/:id', function(req, res) {
     var Userid = req.params.id;
     UserModel
-        .findById(UserId, function (err, user) {
+        .findById(Userid, function (err, user) {
             res.json(user);
         });
 });
 
+// 新規のUser情報を登録する
 router.post('/', function(req, res){
 
     // モデルの作成
@@ -33,7 +30,7 @@ router.post('/', function(req, res){
     User.name = req.body.name;
     User.screen_name = req.body.screen_name;
     User.bio = req.body.bio;
-
+    
     // インスタンスの保存処理
     User.save(function(err){
         if (err) {
