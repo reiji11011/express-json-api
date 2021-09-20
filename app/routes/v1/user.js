@@ -20,23 +20,24 @@ router.get('/:id', function(req, res) {
         });
 });
 
-// 新規のUser情報を登録する
-router.post('/', function(req, res){
+router.post('/',function(req,res){
 
-    // モデルの作成
+    // モデル作成．
     var User = new UserModel();
-    
-    // リクエストから情報をインスタンスに保存
+
+    // データを詰め込む
     User.name = req.body.name;
     User.screen_name = req.body.screen_name;
-    User.bio = req.body.bio;
-    
-    // インスタンスの保存処理
-    User.save(function(err){
-        if (err) {
+    User.bio =  req.body.bio;
+
+    // 保存処理
+    User.save(function(err) {
+        if (err){
+            // エラーがあった場合エラーメッセージを返す
             res.send(err);
         } else {
-            res.json({message: 'Sucsess!'});
+            // エラーがなければ「Success!!」
+            res.json({ message: 'Success!!' });
         }
     });
 });

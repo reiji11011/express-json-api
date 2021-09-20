@@ -46,8 +46,12 @@ MacのCatalinaからルートディレクトリに書き込みができなくな
 
 # 進捗
 - POST /api/vi/user/にてname~などが保存されていない。
-    - mongoDBに入りデータを確認、
-    - postmanでAPIのPOST処理をデバックする方法を調べる。
+    - mongoDBに入り、db.usermodels.find();でUserのnameなどが保存されていないことを確認。
+    - VSCodeにデバッカを導入したがPOSTの内容をどのようにテストすればいいかわからないので調べる。
 
 # 参考
 [サルでも分かるExpressでのjsonAPIサーバーの作り方](https://qiita.com/ngmr_mo/items/73cc7160d002a4989416)
+
+発展させていく上で参考にしたい
+[Node.jsとExpressでローカルサーバーを構築する(1) ―Node.jsとnpmの導入―](https://qiita.com/koedamon/items/37ea8e9175cf0fd62371)
+[KubernetesとNode.jsでマイクロサービスを作成する 1/6 概要](https://qiita.com/reireias/items/6a78d6b8df781a76f94f)
